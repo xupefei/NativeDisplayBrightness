@@ -109,7 +109,7 @@ static CGEventRef keyboardCGEventCallback(CGEventTapProxy proxy,
     if (type == NX_KEYDOWN || type == NX_KEYUP || type == NX_FLAGSCHANGED)
     {
         int64_t keyCode = CGEventGetIntegerValueField(event, kCGKeyboardEventKeycode);
-        if (keyCode == kVK_F2 || keyCode == kVK_F1)
+        if (keyCode == kVK_F13 || keyCode == kVK_F14)
         {
             return NULL;
         }
@@ -177,12 +177,12 @@ static void showBrightnessLevelPaneOnDisplay (uint brightnessLevelInSubsteps, CG
             BOOL isOptionModifierPressed = (event.modifierFlags & NSAlternateKeyMask) != 0;
             BOOL isShiftModifierPressed = (event.modifierFlags & NSShiftKeyMask) != 0;
         
-            if ((event.keyCode == kVK_F1) ||  (event.keyCode == kVK_F2))
+            if ((event.keyCode == kVK_F13) ||  (event.keyCode == kVK_F14))
             {
                 // Screen brightness adjustment
                 int brightnessDelta = isOptionModifierPressed ? 1 : brightnessSubstepsPerStep;
-                if (event.keyCode == kVK_F1) {
-                    // F1 = decrease broghtness
+                if (event.keyCode == kVK_F13) {
+                    // F13 = decrease broghtness
                     brightnessDelta = -brightnessDelta;
                 }
                 
